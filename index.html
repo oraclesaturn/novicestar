@@ -1,15 +1,491 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
   <meta charset="UTF-8">
   <title>NoviceStar</title>
+  <link rel="icon" href="images/favicon.png">
+  
 </head>
+
+<style>
+
+  body {
+    margin: 0;
+	background-color: #F0F0EE;
+	background-image: url("images/deco_bgstar.png");
+	background-size: 80px;
+	background-opacity: 50%;
+    background-repeat: repeat;
+    background-attachment: scroll;
+    font-family: "Fredoka", "Nunito", "Quicksand", sans-serif;
+    color: #5C2319;
+    line-height: 1.6;
+  }
+
+  h1 {
+    font-size: 38px;
+    font-weight: 300;
+    margin: 24px 0 12px;
+	line-height: 1.1;
+  }
+
+  h2 {
+    font-size: 32px;
+    font-weight: 400;
+	color: #37B9BB;
+    margin: 20px 0 10px;
+  }
+
+  h3 {
+    font-size: 18px;
+    font-weight: 500;
+    margin: 8px 0 8px;
+  }
+
+  p {
+    font-size: 16px;
+    font-weight: 400;
+    margin: 0 0 14px;
+    max-width: 640px;
+  }
+
+  /* DIVIDER */
+  .section-title {
+    text-align: center;
+  }
+
+  .dotted-line {
+    width: 80%;
+    height: 6px;
+    margin: -25px auto 26px;
+    background-image: radial-gradient(circle, #37B9BB .5px, transparent 1.5px);
+    background-size: 7px 6px; /* controls dot gap */
+    background-repeat: repeat-x;
+  }
+
+  .zigzag-top {
+    height: 24px;
+    background-image: url("images/deco_zigzag.png");
+    background-repeat: repeat-x;
+  }
+  
+  .zigzag-bottom {
+    height: 24px;
+    background-image: url("images/deco_zigzag.png");
+    background-repeat: repeat-x;
+    transform: scaleY(-1);
+  }
+
+  /* BANNER */
+  .banner {
+    margin-top: -10px;
+    text-align: center;
+	padding-bottom: 15px;
+	overflow-x: hidden;
+  }
+
+  .banner img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+	  object-position: center;
+  }
+
+  /* BANNER LINK */
+  .logo-link {
+    display: inline-block;
+  }
+
+  .logo-link img {
+    display: block;
+  }
+  
+  /* MAIN NAVI BUTTONS */
+  .nav-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+  }
+
+  .btn {
+    font-family: "Fredoka", sans-serif;
+    padding: 14px 26px;
+    border-radius: 999px; /* pill shape */
+	margin: 6px 0;
+    text-decoration: none;
+    font-size: 18px;
+    transition: all 0.2s ease;
+    box-shadow: 0 4px 0 rgba(0,0,0,0.15);
+  }
+  
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* ABOUT BUTTON */
+  .btn-about {
+    background: #d1781c;
+    color: white;
+  }
+
+  /* ETSY (PDF) BUTTON */
+  .btn-etsy {
+    background: #f19b3f;
+    color: white;
+  }
+
+  /* AMAZON (PRINTED) BUTTON */
+  .btn-amazon {
+    background: #8c3f2b;
+    color: white;
+  }
+
+  /* HOVER STATE */
+  .btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 0 #37B9BB;
+  }
+
+  /* CLICK / ACTIVE STATE */
+  .btn:active {
+    transform: translateY(2px);
+    box-shadow: 0 2px 0 rgba(0,0,0,0.15);
+  }
+  
+  /* BOOKS */
+  .books {
+    text-align: center;
+    margin: 30px auto;
+  }
+
+  .books h2 {
+    font-family: "Fredoka", sans-serif;
+    margin-bottom: 20px;
+  }
+
+  .book-grid {
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+    flex-wrap: wrap;
+  }
+
+  .book-card {
+    background: #fff;
+    border-radius: 18px;
+    padding: 16px;
+    width: 220px;
+    box-shadow: 0 6px 0 rgba(0,0,0,0.12);
+  }
+
+  .book-card img {
+    width: 100%;
+    border-radius: 12px;
+  }
+
+  .book-card h3 {
+    margin: 5px 0 5px;
+	line-height: 1.35;
+  }
+
+  .book-card p {
+    margin: 0 0 6px;
+    font-size: 14px;
+    opacity: 0.8;
+	line-height: 1.35;
+  }
+  
+  /* BOOK COMING SOON */
+  .book-card img[alt="Coming Soon"] {
+    opacity: 0.80;
+  }
+
+  .mini-btn {
+    display: inline-block;
+	margin: 8px 0 0 0;
+    padding: 3px 10px;
+    border-radius: 10px;
+    background: #9FE5E7;
+    color: #2C759C;
+    text-decoration: none;
+    font-size: 14px;
+  }
+  
+  /* ABOUT */
+  .about {
+    background-color: #8c3f2b; /* same brown family as button */
+    color: #fff7f2;
+    padding: 25px 20px;
+  }
+  
+  .about-inner {
+    max-width: 750px; /* box */
+    margin: 0 auto;
+  }
+
+  .about-grid {
+    display: grid;
+    grid-template-columns: 250px 1fr; /* image | text */
+    gap: 24px;
+    align-items: start;
+  }
+
+  .about-text h1 {
+    margin-top: 0;
+  }
+   
+  .about-dotted-line {
+    width: 100%;
+    height: 6px;
+    margin: -9px 0 15px 0;
+    background-image: radial-gradient(circle, #ffd6c7 .5px, transparent 1.5px);
+    background-size: 7px 6px; /* controls dot gap */
+    background-repeat: repeat-x;
+  }
+   
+  .creator-line {
+    margin-top: 18px;
+    font-size: 15px;
+    opacity: 0.9;
+  }
+
+  .about .desc {
+    font-size: 20px;
+	font-weight: 200;
+	line-height: 1.4;
+  }
+
+  .about .label {
+    font-weight: 500;
+    opacity: 0.95;
+  }
+
+  .about .contact {
+    margin-top: 6px;
+  }
+
+  .about .contact a {
+    color: #ffd6c7;
+    text-decoration: none;
+    border-bottom: 1px dotted rgba(255,255,255,0.4);
+  }
+
+  .about .contact a:hover {
+    text-decoration: underline;
+  }
+
+  .about-art {
+    justify-self: end;
+    align-self: start;
+  }
+
+  .about-art img {
+    width: 100%;
+    max-width: 230px;
+    display: block;
+    margin: 0;
+  }
+
+  /* FOOTER */
+  .site-footer {
+    background: #f6f3ee;
+    text-align: center;
+    padding: 16px 10px;
+    font-size: 13px;
+    color: #8a6a55;
+  }
+
+  .footer-inner {
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+  }
+
+  /* MOBILE BANNER */
+  @media (max-width: 600px) {
+    .banner {
+      padding-bottom: 95px;
+    }
+
+    .banner img {
+      width: 100%;
+      transform: scale(2);
+      transform-origin: center top;
+    }
+  }
+
+  /* MOBILE BUTTONS */
+  @media (max-width: 600px) {
+    .nav-buttons {
+      gap: 12px;
+      margin-top: 5px;   /* mobile-only nudge */
+    }
+
+    .btn {
+      margin: 0;
+      padding: 12px 22px;
+      font-size: 16px;
+    }
+  }
+  
+  /* MOBILE BOOKS */
+  @media (max-width: 768px) {
+    .books {
+      margin: 28px auto;
+    }
+
+    .book-grid {
+      gap: 18px;
+    }
+  } 
+  
+  /* MOBILE BOOKS BUTTON */
+  @media (max-width: 768px) {
+    .mini-btn {
+      padding: 6px 14px;
+      font-size: 14px;
+      margin: 6px 4px 0 0;
+    }
+  }
+ 
+  /* MOBILE ABOUT */ 
+  @media (max-width: 768px) {
+    .about-grid {
+      grid-template-columns: 1fr;
+      gap: 20px;
+      text-align: center;
+    }
+
+    .about-art {
+      justify-self: center;
+      align-self: start;
+    }
+
+    .about-art img {
+      max-width: 220px;
+      margin: 0 auto;
+    }
+  }
+
+    .about-text {
+      padding-top: 12px;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .about h1 {
+      line-height: 1.05;
+    }
+  }
+   
+</style>
+
 <body>
-  <h1>NoviceStar</h1>
-  <p>Cozy activity books for kids.</p>
-  <p>
-    <a href="#">Amazon</a> | 
-    <a href="#">Etsy</a>
-  </p>
+  
+  <div class="zigzag-top"></div>
+  
+  <div class="banner">
+    <a href="index.html" class="logo-link">
+      <img src="images/logo_banner_clouds.png" alt="Novicestar banner with clouds and stars">
+	</a>
+  </div>
+  
+  <div class="nav-buttons">
+    <a href="#about" class="btn btn-about">✦ About NoviceStar ✦</a>
+    <a href="https://NoviceStarShop.etsy.com/" class="btn btn-etsy">✦ PDF Books on Etsy ✦</a>
+    <a href="https://www.amazon.com/s?i=stripbooks&rh=p_27%3ALois%2BLaqui" class="btn btn-amazon">✦ Printed Books on Amazon ✦</a>
+  </div>
+    
+  <section class="books">
+  
+    <h2 class="section-title">✎ Our Little Books</h2>
+	<div class="dotted-line"></div>
+
+    <div class="book-grid">
+	
+      <div class="book-card">
+        <img src="images/book_i_love_what_i_do_vol1_thumb.png" alt="I Love What I Do Vol. 1 Cover">
+        <h3>I Love What I Do Vol. 1</h3>
+        <p>
+		  Occupation Coloring Book<br>
+		  20 pages • For ages 4+<br>
+		  Released December 2025
+		</p>
+        <a href="https://www.etsy.com/listing/4413367767/i-love-what-i-do-vol-1-occupation" class="mini-btn">➥ Etsy</a>
+		<a href="https://www.amazon.com/Love-What-Vol-Occupation-Single-Sided/dp/B0G764Z1JR/" class="mini-btn">➥ Amazon</a>
+      </div>
+
+      <div class="book-card">
+        <img src="images/book_coming_soon_thumb.png" alt="Coming Soon">
+        <h3>Let's Count Together 1-10 (Everyday Objects)</h3>
+        <p>
+		  Basic Counting • Coloring Book<br>
+		  30 pages • For ages 4-6<br>
+		  Coming Soon
+		</p>
+      </div>
+	  
+    </div>
+	
+  </section>
+  
+  <div class="zigzag-bottom"></div>
+
+  <section class="about" id="about">
+
+    <div class="about-inner">
+
+      <div class="about-grid">
+
+        <!-- LEFT: doodle -->
+        <div class="about-art">
+          <img src="images/about_doodle.png" alt="NoviceStar doodle portrait">
+        </div>
+
+        <!-- RIGHT: text -->
+        <div class="about-text">
+          <h1>About NoviceStar✦</h1>
+		  <div class="about-dotted-line"></div>
+          <p class="desc">
+            NoviceStar creates gentle books for young learners,
+            just the right size to finish with a smile.
+          </p>
+          <p class="desc">
+            Designed for little hands, short attention spans,
+            and proud “I did it!” moments.
+          </p>
+		  
+		  <p class="creator-line">
+            <span class="label">Creator &amp; Illustrator</span> ♥ Lois Laqui
+          </p>
+          <p class="contact">
+            Say hello at ✉
+            <a href="mailto:novicestar.letter@gmail.com">
+            novicestar.letter@gmail.com
+            </a>
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+  
+  <div class="zigzag-top"></div>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <p>© 2025 NoviceStar. All rights reserved.</p>
+    </div>
+  </footer>
+  
 </body>
+
 </html>
