@@ -4,12 +4,17 @@
 <head>
 
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>NoviceStar</title>
   <link rel="icon" href="images/favicon.png">
-  
+
 </head>
 
 <style>
+
+  html, body {
+  overflow-x: hidden;
+  }
 
   body {
     margin: 0;
@@ -51,7 +56,8 @@
     max-width: 640px;
   }
 
-  /* DIVIDER */
+  /* ---------------------------------====♦ [DIVIDER] DOTTED LINE */
+
   .section-title {
     text-align: center;
   }
@@ -61,16 +67,18 @@
     height: 6px;
     margin: -25px auto 26px;
     background-image: radial-gradient(circle, #37B9BB .5px, transparent 1.5px);
-    background-size: 7px 6px; /* controls dot gap */
+    background-size: 7px 6px; /* ⬛️⬛️⬛️ dot gap */
     background-repeat: repeat-x;
   }
+
+  /* ---------------------------------====♦ [DIVIDER] ZIGZAG */
 
   .zigzag-top {
     height: 24px;
     background-image: url("images/deco_zigzag.png");
     background-repeat: repeat-x;
   }
-  
+
   .zigzag-bottom {
     height: 24px;
     background-image: url("images/deco_zigzag.png");
@@ -78,23 +86,43 @@
     transform: scaleY(-1);
   }
 
-  /* BANNER */
+  .zigzag-top,
+  .zigzag-bottom,
   .banner {
-    margin-top: -10px;
-    text-align: center;
-	padding-bottom: 15px;
-	overflow-x: hidden;
+    overflow-x: hidden;
   }
 
-  .banner img {
-    max-width: 100%;
+  /* ---------------------------------====♦ [BANNER] */
+
+  .banner {
+    width: 100%;
+    background-image: url("images/banner_clouds.png");
+    background-repeat: no-repeat;
+    background-position: center top;
+   background-size: min(800px, 100%) auto;
+  }
+
+  .banner-inner {
+    width: 100%;
+    padding: 20px 0px 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  /* ---------------------------------====♦  [BANNER] LOGO */
+
+  .banner-logo {
+    width: 211px;
+    max-width: 70%;
     height: auto;
     display: block;
-    margin: 0 auto;
-	  object-position: center;
+    margin-left: auto;
+    margin-right: auto;
   }
 
-  /* BANNER LINK */
+  /* ---------------------------------====♦  [BANNER] LOGO LINK */
+
   .logo-link {
     display: inline-block;
   }
@@ -102,61 +130,68 @@
   .logo-link img {
     display: block;
   }
-  
-  /* MAIN NAVI BUTTONS */
+
+  /* ---------------------------------====♦ [ MAIN BUTTONS ] */
+
   .nav-buttons {
     display: flex;
     justify-content: center;
     gap: 15px;
+	row-gap: 6px;
     flex-wrap: wrap;
   }
 
   .btn {
     font-family: "Fredoka", sans-serif;
     padding: 14px 26px;
-    border-radius: 999px; /* pill shape */
+    border-radius: 999px;
 	margin: 6px 0;
     text-decoration: none;
     font-size: 18px;
     transition: all 0.2s ease;
     box-shadow: 0 4px 0 rgba(0,0,0,0.15);
   }
-  
-  html {
-    scroll-behavior: smooth;
-  }
 
-  /* ABOUT BUTTON */
+  /* ---------------------------------====♦ [MAIN BUTTONS] ABOUT */
+
   .btn-about {
     background: #d1781c;
     color: white;
   }
 
-  /* ETSY (PDF) BUTTON */
+  html {
+    scroll-behavior: smooth; /* ⬛️⬛️⬛️ anchored link */
+  }
+
+  /* ---------------------------------====♦ [MAIN BUTTONS] ETSY (PDF) */
+
   .btn-etsy {
     background: #f19b3f;
     color: white;
   }
 
-  /* AMAZON (PRINTED) BUTTON */
+  /* ---------------------------------====♦ [MAIN BUTTONS] AMAZON (PRINTED) */
+
   .btn-amazon {
     background: #8c3f2b;
     color: white;
   }
 
-  /* HOVER STATE */
+  /* ---------------------------------====♦ [MAIN BUTTONS STATE] HOVER */
+
   .btn:hover {
     transform: translateY(-2px);
     box-shadow: 0 6px 0 #37B9BB;
   }
 
-  /* CLICK / ACTIVE STATE */
+  /* ---------------------------------====♦ [MAIN BUTTONS STATE] CLICK / ACTIVE */
+
   .btn:active {
     transform: translateY(2px);
     box-shadow: 0 2px 0 rgba(0,0,0,0.15);
   }
-  
-  /* BOOKS */
+
+  /* ---------------------------------====♦ [BOOKS] */
   .books {
     text-align: center;
     margin: 30px auto;
@@ -167,24 +202,28 @@
     margin-bottom: 20px;
   }
 
+  /* ---------------------------------====♦ [BOOKS] GRID */
+
   .book-grid {
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 250px);
+    gap: 10px;
+    row-gap: 15px;
     justify-content: center;
-    gap: 24px;
-    flex-wrap: wrap;
+    justify-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
   }
+
+  /* ---------------------------------====♦ [BOOKS] CARD */
 
   .book-card {
     background: #fff;
-    border-radius: 18px;
-    padding: 16px;
+    border-radius: 10px;
+    padding: 14px;
     width: 220px;
     box-shadow: 0 6px 0 rgba(0,0,0,0.12);
-  }
-
-  .book-card img {
-    width: 100%;
-    border-radius: 12px;
+	justify-content: center;
   }
 
   .book-card h3 {
@@ -198,10 +237,68 @@
     opacity: 0.8;
 	line-height: 1.35;
   }
+
+  /* ---------------------------------====♦ [BOOK IMAGE PREVIEW] BASE */
+
+  .book-preview {
+    display: flex;
+    gap: 8px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    margin-bottom: 6px;
+
+    scrollbar-width: thin; /* ⬛️⬛️⬛️ Firefox scrollbar*/
+    scrollbar-color: #9FE5E7 transparent;
+  }
+
+  /* ---------------------------------====♦ [BOOK IMAGE PREVIEW] IMAGES / THUMBNAILS */
+
+  .book-preview img {
+    width: 220px;
+    border-radius: 0px;
+    flex-shrink: 0;
+  }
+
+  /* ⬛️⬛️⬛️ Chrome / Edge / Safari scrollbar */
+  .book-preview::-webkit-scrollbar {
+    height: 4px;
+  }
+
+  .book-preview::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  .book-preview::-webkit-scrollbar-thumb {
+    background-color: rgba(241, 183, 176, 0.6);
+    border-radius: 999px;
+  }
+
+  /* ---------------------------------====♦ [BOOK IMAGE PREVIEW] MULTI-IMAGE WRAPPER (FADE HINT) */
+
+  .book-preview-wrap {
+    position: relative;
+  }
+
+  .book-preview-wrap::after {
+    content: "";
+	opacity: 0;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 25px;
+    height: 100%;
+    pointer-events: none;
+    background: linear-gradient(
+      to left,
+      #ffffff 0%,
+      rgba(255,255,255,0) 70%
+      );
+  }
   
-  /* BOOK COMING SOON */
+   /* ---------------------------------====♦ [BOOK IMAGE] COMING SOON / FADED */
+
   .book-card img[alt="Coming Soon"] {
-    opacity: 0.80;
+    opacity: 0.70;
   }
 
   .mini-btn {
@@ -215,13 +312,14 @@
     font-size: 14px;
   }
   
-  /* ABOUT */
+  /* ---------------------------------====♦ [ABOUT] */
+
   .about {
-    background-color: #8c3f2b; /* same brown family as button */
+    background-color: #8c3f2b;
     color: #fff7f2;
     padding: 25px 20px;
   }
-  
+
   .about-inner {
     max-width: 750px; /* box */
     margin: 0 auto;
@@ -229,21 +327,33 @@
 
   .about-grid {
     display: grid;
-    grid-template-columns: 250px 1fr; /* image | text */
+    grid-template-columns: 250px 1fr; /* ⬛️⬛️⬛️ image | text */
     gap: 24px;
     align-items: start;
+  }
+
+  .about-art {
+    justify-self: end;
+    align-self: start;
+  }
+
+  .about-art img {
+    width: 100%;
+    max-width: 600px;
+    display: block;
+    margin: 0;
   }
 
   .about-text h1 {
     margin-top: 0;
   }
-   
+
   .about-dotted-line {
     width: 100%;
     height: 6px;
     margin: -9px 0 15px 0;
     background-image: radial-gradient(circle, #ffd6c7 .5px, transparent 1.5px);
-    background-size: 7px 6px; /* controls dot gap */
+    background-size: 7px 6px; /* ⬛️⬛️⬛️ dot gap */
     background-repeat: repeat-x;
   }
    
@@ -278,19 +388,8 @@
     text-decoration: underline;
   }
 
-  .about-art {
-    justify-self: end;
-    align-self: start;
-  }
+  /* ---------------------------------====♦ [FOOTER] */
 
-  .about-art img {
-    width: 100%;
-    max-width: 230px;
-    display: block;
-    margin: 0;
-  }
-
-  /* FOOTER */
   .site-footer {
     background: #f6f3ee;
     text-align: center;
@@ -307,45 +406,58 @@
     justify-content: center;
   }
 
-  /* MOBILE BANNER */
-  @media (max-width: 600px) {
-    .banner {
-      padding-bottom: 95px;
-    }
+  /* - - - - - - - - - - - - - - - - -====♦ 📱 MOBILE: MARGIN */
 
-    .banner img {
-      width: 100%;
-      transform: scale(2);
-      transform-origin: center top;
-    }
+  .page-wrap {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
   }
 
-  /* MOBILE BUTTONS */
-  @media (max-width: 600px) {
-    .nav-buttons {
-      gap: 12px;
-      margin-top: 5px;   /* mobile-only nudge */
-    }
+  /* - - - - - - - - - - - - - - - - -====♦ 📱 MOBILE: H1 H2 */
 
-    .btn {
-      margin: 0;
-      padding: 12px 22px;
-      font-size: 16px;
-    }
-  }
-  
-  /* MOBILE BOOKS */
   @media (max-width: 768px) {
-    .books {
-      margin: 28px auto;
+    h1 {
+      font-size: 26px;
+    }
+    h2 {
+      font-size: 22px;
+    }
+  }
+
+  /* - - - - - - - - - - - - - - - - -====♦ 📱 MOBILE: BANNER */
+
+  @media (max-width: 768px) {
+    .banner {
+      background-image: none; /* ⬛️⬛️⬛️ remove clouds */
     }
 
-    .book-grid {
-      gap: 18px;
+    .banner-logo {
+      content: url("images/logo_novicestar_mobile.png");
+      width: min(211px, 70vw);
     }
-  } 
-  
-  /* MOBILE BOOKS BUTTON */
+  }
+
+  /* - - - - - - - - - - - - - - - - -====♦ 📱 MOBILE: MAIN BUTTONS */
+
+  @media (max-width: 768px) {
+    .nav-buttons {
+      gap: 10px;
+      margin-top: 6px;
+    }
+
+    .nav-buttons a {
+      width: 100%;
+      max-width: 320px;
+      font-size: 14px;
+      padding: 12px 18px;
+      text-align: center;
+      margin: 0;
+    }
+  }
+
+  /* - - - - - - - - - - - - - - - - -====♦ 📱 MOBILE: BOOKS BUTTON */
+
   @media (max-width: 768px) {
     .mini-btn {
       padding: 6px 14px;
@@ -353,8 +465,35 @@
       margin: 6px 4px 0 0;
     }
   }
- 
-  /* MOBILE ABOUT */ 
+
+  /* - - - - - - - - - - - - - - - - -====♦ 📱 MOBILE: BOOKS > CARD */ 
+
+  @media (max-width: 768px) {
+    .book-card {
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+
+  /* - - - - - - - - - - - - - - - - -====♦ 📱 MOBILE: BOOKS > CARD SWIPE HINT */
+
+  .swipe-hint {
+    font-size: 11px;
+    margin-top: 4px;
+    color: #37B9BB;
+    opacity: 0.85;
+  }
+
+  /* - - - - - - - - - - - - - - - - -====♦ 📱 MOBILE: BOOKS > CARD SWIPE HINT > HIDE ON PC / MOUSE DEVICES */
+
+  @media (hover: hover) and (pointer: fine) {
+    .swipe-hint {
+    display: none;
+    }
+  }
+
+  /* - - - - - - - - - - - - - - - - -====♦ 📱 MOBILE: ABOUT */ 
+
   @media (max-width: 768px) {
     .about-grid {
       grid-template-columns: 1fr;
@@ -368,14 +507,16 @@
     }
 
     .about-art img {
-      max-width: 220px;
-      margin: 0 auto;
+      width: 100%;
+      max-width: 300px;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
     }
   }
 
-    .about-text {
-      padding-top: 12px;
-    }
+  .about-text {
+    padding-top: 12px;
   }
   
   @media (max-width: 768px) {
@@ -383,85 +524,104 @@
       line-height: 1.05;
     }
   }
-   
+
 </style>
 
 <body>
-  
+
   <div class="zigzag-top"></div>
-  
-  <div class="banner">
-    <a href="index.html" class="logo-link">
-      <img src="images/logo_banner_clouds.png" alt="Novicestar banner with clouds and stars">
-	</a>
-  </div>
-  
-  <div class="nav-buttons">
-    <a href="#about" class="btn btn-about">✦ About NoviceStar ✦</a>
-    <a href="https://NoviceStarShop.etsy.com/" class="btn btn-etsy">✦ PDF Books on Etsy ✦</a>
-    <a href="https://www.amazon.com/s?i=stripbooks&rh=p_27%3ALois%2BLaqui" class="btn btn-amazon">✦ Printed Books on Amazon ✦</a>
-  </div>
-    
-  <section class="books">
-  
-    <h2 class="section-title">✎ Our Little Books</h2>
-	<div class="dotted-line"></div>
 
-    <div class="book-grid">
-	
-      <div class="book-card">
-        <img src="images/book_i_love_what_i_do_vol1_thumb.png" alt="I Love What I Do Vol. 1 Cover">
-        <h3>I Love What I Do Vol. 1</h3>
-        <p>
-		  Occupation Coloring Book<br>
-		  20 pages • For ages 4+<br>
-		  Released December 2025
-		</p>
-        <a href="https://www.etsy.com/listing/4413367767/i-love-what-i-do-vol-1-occupation" class="mini-btn">➥ Etsy</a>
-		<a href="https://www.amazon.com/Love-What-Vol-Occupation-Single-Sided/dp/B0G764Z1JR/" class="mini-btn">➥ Amazon</a>
-      </div>
-
-      <div class="book-card">
-        <img src="images/book_lets_count_together_1to10_thumb.png" alt="Coming Soon">
-        <h3>Let's Count Together 1-10</h3>
-        <p>
-		  Basic Counting • Coloring Book<br>
-		  20 pages • For ages 4-6<br>
-		  Coming Soon
-		</p>
-      </div>
-	  
-	  <div class="book-card">
-        <img src="images/book_coming_soon_thumb.png" alt="Coming Soon">
-        <h3>Word Detective</h3>
-        <p>
-		  Find the Word • Activity Book<br>
-		  20 pages • For ages 4-6<br>
-		  Coming Soon
-		</p>
-      </div>
-	  
+  <section class="banner">
+    <div class="banner-inner">
+      <a href="index.html" class="logo-link">
+        <img src="images/logo_novicestar.png" alt="NoviceStar Logo" class="banner-logo">
+	  </a>
     </div>
-	
+  </section>
+
+  <div class="page-wrap">
+    <div class="nav-buttons">
+      <a href="#about" class="btn btn-about">✦ About NoviceStar ✦</a>
+      <a href="https://NoviceStarShop.etsy.com/" class="btn btn-etsy" target="_blank" rel="noopener">✦ PDF Books on Etsy ✦</a>
+      <a href="https://www.amazon.com/s?i=stripbooks&rh=p_27%3ALois%2BLaqui" class="btn btn-amazon" target="_blank" rel="noopener">✦ Printed Books on Amazon ✦</a>
+    </div>
+  </div>
+
+  <section class="books">
+    <div class="page-wrap">
+
+      <h2 class="section-title">✎ Our Little Books</h2>
+	  <div class="dotted-line"></div>
+
+      <div class="book-grid">
+
+        <div class="book-card">
+          <div class="book-preview-wrap">
+            <div class="book-preview">
+              <img src="images/book_i_love_what_i_do_vol1_thumb.png" alt="Cover preview">
+              <img src="images/book_i_love_what_i_do_vol1_m1_thumb.png" alt="Back Cover preview">
+              <img src="images/book_i_love_what_i_do_vol1_m2_thumb.png" alt="Sample page">
+              <img src="images/book_i_love_what_i_do_vol1_m3_thumb.png" alt="Sample page">
+              <img src="images/book_i_love_what_i_do_vol1_m4_thumb.png" alt="Sample page">
+              <img src="images/book_i_love_what_i_do_vol1_m5_thumb.png" alt="Certificate preview">
+              <img src="images/book_i_love_what_i_do_vol1_m6_thumb.png" alt="Certificate preview">
+            </div>
+          </div>
+		  <p class="swipe-hint">Swipe to preview →</p>
+          <h3>I Love What I Do Vol. 1</h3>
+          <p>
+		    Occupation Coloring Book<br>
+	        20 cute characters • For ages 4+<br>
+		    <i>Released December 2025</i>
+          </p>
+        <a href="https://www.etsy.com/listing/4413367767/i-love-what-i-do-vol-1-occupation" class="mini-btn" target="_blank" rel="noopener">➥ Etsy</a>
+		<a href="https://www.amazon.com/Love-What-Vol-Occupation-Single-Sided/dp/B0G764Z1JR/" class="mini-btn" target="_blank" rel="noopener">➥ Amazon</a>
+        </div>
+
+        <div class="book-card">
+          <div class="book-preview">
+            <img src="images/book_lets_count_together_1to10_thumb.png" alt="Coming Soon">
+          </div>
+          <h3>Let's Count Together 1-10</h3>
+          <p>
+		    Basic Counting • Coloring Book<br>
+		    20 pages • For ages 4-6<br>
+            Coming Soon
+          </p>
+        </div>
+	  
+        <div class="book-card">
+          <div class="book-preview">
+            <img src="images/book_coming_soon_thumb.png" alt="Coming Soon">
+          </div>
+          <h3>Word Detective</h3>
+          <p>
+            Find the Word • Activity Book<br>
+            20 pages • For ages 4-6<br>
+            Coming Soon
+          </p>
+        </div>
+
+      </div>
+
+    </div>
   </section>
   
   <div class="zigzag-bottom"></div>
-
+  
   <section class="about" id="about">
-
     <div class="about-inner">
-
-      <div class="about-grid">
-
+	  <div class="about-grid">
+	  
         <!-- LEFT: doodle -->
         <div class="about-art">
-          <img src="images/about_doodle.png" alt="NoviceStar doodle portrait">
+          <img src="images/about_doodle.png" alt="NoviceStar books">
         </div>
-
+		
         <!-- RIGHT: text -->
         <div class="about-text">
           <h1>About NoviceStar✦</h1>
-		  <div class="about-dotted-line"></div>
+          <div class="about-dotted-line"></div>
           <p class="desc">
             NoviceStar creates gentle books for young learners,
             just the right size to finish with a smile.
@@ -470,7 +630,6 @@
             Designed for little hands, short attention spans,
             and proud “I did it!” moments.
           </p>
-		  
 		  <p class="creator-line">
             <span class="label">Creator &amp; Illustrator</span> ♥ Lois Laqui
           </p>
@@ -487,7 +646,7 @@
     </div>
 
   </section>
-  
+
   <div class="zigzag-top"></div>
 
   <footer class="site-footer">
@@ -495,7 +654,84 @@
       <p>© 2025 NoviceStar. All rights reserved.</p>
     </div>
   </footer>
+
+  <script>
   
+    document.querySelectorAll('.book-preview').forEach(preview => {
+      let resetTimer;
+      let hoverInterval;
+      let isHovering = false;
+      const images = Array.from(preview.querySelectorAll('img'));
+      const pause = 1600;           // ⬛️⬛️⬛️ normal speed between slides
+      const firstMoveDelay = 350;   // ⬛️⬛️⬛️ fast hint on hover
+	  
+      function resetToStart() {
+        preview.scrollTo({ left: 0, behavior: 'smooth' });
+        }
+
+      // Reset after manual scroll (only when NOT hovering)
+      preview.addEventListener('scroll', () => {
+        if (isHovering) return;
+        clearTimeout(resetTimer);
+        resetTimer = setTimeout(resetToStart, 3500);
+      });
+
+      // HOVER auto-scroll (PC only)
+      preview.addEventListener('pointerenter', (e) => {
+        if (e.pointerType !== 'mouse') return;
+        if (images.length <= 1) return;
+
+        isHovering = true;
+        clearTimeout(resetTimer);
+        clearInterval(hoverInterval);
+
+        // always start from first image
+        preview.scrollTo({ left: 0, behavior: 'auto' });
+
+        let index = 1;
+
+        // 🔹 quick first hint
+        setTimeout(() => {
+          if (!isHovering) return;
+
+          preview.scrollTo({
+            left: images[index].offsetLeft,
+            behavior: 'smooth'
+          });
+
+          index++;
+
+        // 🔹 normal pacing after first move
+          hoverInterval = setInterval(() => {
+            if (!isHovering || index >= images.length) {
+              clearInterval(hoverInterval);
+              return;
+            }
+
+          preview.scrollTo({
+            left: images[index].offsetLeft,
+            behavior: 'smooth'
+          });
+
+          index++;
+		  
+          }, pause);
+
+        }, firstMoveDelay);
+      });
+
+      // LEAVE → gently return to first image (PC only)
+      preview.addEventListener('pointerleave', (e) => {
+        if (e.pointerType !== 'mouse') return;
+
+        isHovering = false;
+        clearInterval(hoverInterval);
+        setTimeout(resetToStart, 200);
+      });
+    });
+
+  </script>
+
 </body>
 
 </html>
