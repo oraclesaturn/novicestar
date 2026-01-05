@@ -631,8 +631,9 @@
             and proud “I did it!” moments.
           </p>
 		  <p class="creator-line">
-            <span class="label">Creator &amp; Illustrator</span> ♥ Lois Laqui
-          </p>
+            <span class="label">Creator &amp; Illustrator</span> Lois Laqui
+            <br>✦ <i>Based in the Philippines</i> ✦
+		  </p>
           <p class="contact">
             Say hello at ✉
             <a href="mailto:novicestar.letter@gmail.com">
@@ -662,21 +663,21 @@
       let hoverInterval;
       let isHovering = false;
       const images = Array.from(preview.querySelectorAll('img'));
-      const pause = 1600;           // ⬛️⬛️⬛️ normal speed between slides
-      const firstMoveDelay = 350;   // ⬛️⬛️⬛️ fast hint on hover
+      const pause = 1600;           // 🔹 normal speed between slides
+      const firstMoveDelay = 350;   // 🔹 fast hint on hover
 	  
       function resetToStart() {
         preview.scrollTo({ left: 0, behavior: 'smooth' });
         }
 
-      // Reset after manual scroll (only when NOT hovering)
+      // 🔹 Reset after manual scroll (only when NOT hovering)
       preview.addEventListener('scroll', () => {
         if (isHovering) return;
         clearTimeout(resetTimer);
         resetTimer = setTimeout(resetToStart, 3500);
       });
 
-      // HOVER auto-scroll (PC only)
+      // 🔹 HOVER auto-scroll (PC only)
       preview.addEventListener('pointerenter', (e) => {
         if (e.pointerType !== 'mouse') return;
         if (images.length <= 1) return;
@@ -685,7 +686,7 @@
         clearTimeout(resetTimer);
         clearInterval(hoverInterval);
 
-        // always start from first image
+        // 🔹 always start from first image
         preview.scrollTo({ left: 0, behavior: 'auto' });
 
         let index = 1;
@@ -720,7 +721,7 @@
         }, firstMoveDelay);
       });
 
-      // LEAVE → gently return to first image (PC only)
+      // 🔹 LEAVE → gently return to first image (PC only)
       preview.addEventListener('pointerleave', (e) => {
         if (e.pointerType !== 'mouse') return;
 
