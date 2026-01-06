@@ -30,7 +30,7 @@
   }
 
   h1 {
-    font-size: 38px;
+    font-size: 32px;
     font-weight: 300;
     margin: 24px 0 12px;
 	line-height: 1.1;
@@ -372,7 +372,7 @@
   .about-grid {
     display: grid;
     grid-template-columns: 250px 1fr; /* ⬛️⬛️⬛️ image | text */
-    gap: 24px;
+    gap: 5px;
     align-items: start;
   }
 
@@ -415,7 +415,7 @@
   }
 
   .about .desc {
-    font-size: 20px;
+    font-size: 18px;
 	font-weight: 200;
 	line-height: 1.4;
   }
@@ -437,6 +437,36 @@
 
   .about .contact a:hover {
     text-decoration: underline;
+  }
+
+  /* ---------------------------------====♦ [ABOUT] Family */
+
+  .about-credits {
+    display: flex;
+    justify-content: flex-start; /* ✅ desktop LEFT */
+    gap: 28px;
+    margin-top: 18px;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  .credit-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .credit-avatar {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid rgba(255, 214, 199, 0.9);
+  }
+
+  .credit-text {
+    font-size: 1.05rem;
+    line-height: 1.2;
   }
 
   /* ---------------------------------====♦ [FOOTER] */
@@ -477,10 +507,10 @@
 
   @media (max-width: 600px) {
     h1 {
-      font-size: 26px;
+      font-size: 30px;
     }
     h2 {
-      font-size: 26px;
+      font-size: 30px;
     }
   }
 
@@ -509,7 +539,7 @@
     .nav-buttons a {
       width: 100%;
       max-width: 320px;
-      font-size: 14px;
+      font-size: 16px;
       padding: 12px 18px;
       text-align: center;
       margin: 0;
@@ -637,6 +667,37 @@
 
     .about-text p {
       text-align: center;
+    }
+  }
+  
+  /* - - - - - - - - - - - - - - - - -====♦ 📱 MOBILE: Family */ 
+  
+  @media (max-width: 600px) {
+    .about-credits {
+      justify-content: left; /* 📱 mobile CENTER */
+      gap: 16px;
+    }
+
+    .credit-item {
+      display: flex;
+      flex-direction: row;       /* avatar beside text */
+      justify-content: center;   /* center the pair */
+      align-items: center;
+      text-align: left;
+      gap: 10px;
+      width: fit-content;        /* ⭐ important */
+    }
+
+    .credit-avatar {
+      border: 2px solid #ffd6c7;
+      border-radius: 50%;
+	  width: 50px;
+      height: 50px;
+	  margin: 0 0 0 20px;
+    }
+	
+	.credit-text {
+      font-size: 0.95rem;
     }
   }
 
@@ -779,6 +840,7 @@
         <!-- RIGHT: text -->
         <div class="about-text-wrap">
 		<div class="about-text">
+		
           <h1>About NoviceStar✦</h1>
           <div class="about-dotted-line"></div>
           <p class="desc">
@@ -789,17 +851,49 @@
             Designed for little hands, short attention spans,
             and proud “I did it!” moments.
           </p>
-		  <p class="creator-line">
-            <span class="label">Creator &amp; Illustrator:</span> Lois Laqui
-            <br>✦ <i>Based in the Philippines</i> ✦
+		  
+		  <h1>Our Little Team✦</h1>
+		  <div class="about-dotted-line"></div>
+
+          <div class="about-credits">
+            <div class="credit-item">
+              <img src="images/avatar_lois.png" alt="Lois" class="credit-avatar">
+              <div class="credit-text">
+                <strong>Lois Laqui</strong><br>
+                Creator · Illustrator
+              </div>
+            </div>
+
+            <div class="credit-item">
+              <img src="images/avatar_rei.png" alt="Rei" class="credit-avatar">
+              <div class="credit-text">
+                <strong>Rei</strong><br>
+                Studio Wordsmith
+                </div>
+              </div>
+
+            <div class="credit-item">
+              <img src="images/avatar_silver.png" alt="Silver" class="credit-avatar">
+              <div class="credit-text">
+                <strong>Silver</strong><br>
+                Quality Control Expert 🐾
+              </div>
+            </div>
+          </div>
+
+          <br>
+          <div class="about-dotted-line"></div>
+
 		  </p>
           <p class="contact">
+		  ✦ <i>Based in the Philippines</i> ✦<br>
             Say hello at ✉
             <a href="mailto:novicestar.letter@gmail.com">
             novicestar.letter@gmail.com
             </a>
           </p>
-		  </div>
+		
+		</div>
         </div>
 
       </div>
