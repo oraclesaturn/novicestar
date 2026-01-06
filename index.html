@@ -39,7 +39,7 @@
   h2 {
     font-size: 32px;
     font-weight: 400;
-	color: #37B9BB;
+	color: #2C759C;
     margin: 20px 0 10px;
   }
 
@@ -56,17 +56,19 @@
     max-width: 640px;
   }
 
-  /* ---------------------------------====♦ [DIVIDER] DOTTED LINE */
+  /* ---------------------------------====♦ [TITLE] */
 
   .section-title {
     text-align: center;
   }
 
+  /* ---------------------------------====♦ [DIVIDER] DOTTED LINE */
+
   .dotted-line {
     width: 80%;
     height: 6px;
-    margin: -25px auto 26px;
-    background-image: radial-gradient(circle, #37B9BB .5px, transparent 1.5px);
+    margin: -25px auto 5px;
+    background-image: radial-gradient(circle, #63A4C6 .5px, transparent 1.5px);
     background-size: 7px 6px; /* ⬛️⬛️⬛️ dot gap */
     background-repeat: repeat-x;
   }
@@ -136,18 +138,18 @@
   .nav-buttons {
     display: flex;
     justify-content: center;
-    gap: 15px;
+    gap: 10px;
 	row-gap: 6px;
     flex-wrap: wrap;
   }
 
   .btn {
     font-family: "Fredoka", sans-serif;
-    padding: 14px 26px;
+    padding: 10px 26px;
     border-radius: 999px;
 	margin: 6px 0;
     text-decoration: none;
-    font-size: 18px;
+    font-size: 16px;
     transition: all 0.2s ease;
     box-shadow: 0 4px 0 rgba(0,0,0,0.15);
   }
@@ -181,7 +183,7 @@
 
   .btn:hover {
     transform: translateY(-2px);
-    box-shadow: 0 6px 0 #37B9BB;
+    box-shadow: 0 6px 0 #67D0D2;
   }
 
   /* ---------------------------------====♦ [MAIN BUTTONS STATE] CLICK / ACTIVE */
@@ -191,10 +193,50 @@
     box-shadow: 0 2px 0 rgba(0,0,0,0.15);
   }
 
+  /* ---------------------------------====♦ [BOOK META ICON ROW] */
+
+  .book-meta {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin: 6px auto 20px;
+    font-size: 14px;
+    color: #2C759C;
+  }
+
+  .meta-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(159, 229, 231, 0.35);
+    padding: 3px 8px 5px 7px;
+    border-radius: 7px;
+	border: 1px dashed #63A4C6;
+  }
+  
+  .meta-icon {
+    font-size: 15px;
+    line-height: 1;
+	filter: saturate(1.2);
+  }
+  
+  .meta-icon img {
+    width: auto;
+    height: 17px;
+    display: block;
+  }
+
+  .meta-text {
+    font-weight: 400;
+    white-space: nowrap;
+  }
+
   /* ---------------------------------====♦ [BOOKS] */
+  
   .books {
     text-align: center;
-    margin: 30px auto;
+    margin: 10px 0px 40px 0px;
   }
 
   .books h2 {
@@ -228,14 +270,14 @@
 
   .book-card h3 {
     margin: 5px 0 5px;
-	line-height: 1.35;
+    line-height: 1.35;
   }
 
   .book-card p {
     margin: 0 0 6px;
     font-size: 14px;
     opacity: 0.8;
-	line-height: 1.35;
+    line-height: 1.35;
   }
 
   /* ---------------------------------====♦ [BOOK IMAGE PREVIEW] BASE */
@@ -295,12 +337,14 @@
       );
   }
   
-   /* ---------------------------------====♦ [BOOK IMAGE] COMING SOON / FADED */
+  /* ---------------------------------====♦ [BOOK IMAGE] COMING SOON / FADED */
 
   .book-card img[alt="Coming Soon"] {
     opacity: 0.70;
   }
 
+  /* ---------------------------------====♦ [BOOKS] MINI BUTTON */
+  
   .mini-btn {
     display: inline-block;
 	margin: 8px 0 0 0;
@@ -311,7 +355,7 @@
     text-decoration: none;
     font-size: 14px;
   }
-  
+
   /* ---------------------------------====♦ [ABOUT] */
 
   .about {
@@ -339,13 +383,20 @@
 
   .about-art img {
     width: 100%;
-    max-width: 600px;
+    max-width: 300px;
     display: block;
     margin: 0;
   }
 
   .about-text h1 {
     margin-top: 0;
+  }
+  
+  .about-text {
+    max-width: 640px;
+    margin-left: 0;
+    margin-right: auto;
+    text-align: left;
   }
 
   .about-dotted-line {
@@ -406,6 +457,14 @@
     justify-content: center;
   }
 
+  /* - - - - - - - - - - - - - - - - -====♦ 📱 MOBILE: DIVIDER > DOTTED LINE */
+
+  @media (max-width: 900px) {
+    .dotted-line {
+      width: 100%;
+    }
+  }
+
   /* - - - - - - - - - - - - - - - - -====♦ 📱 MOBILE: MARGIN */
 
   .page-wrap {
@@ -416,31 +475,32 @@
 
   /* - - - - - - - - - - - - - - - - -====♦ 📱 MOBILE: H1 H2 */
 
-  @media (max-width: 768px) {
+  @media (max-width: 600px) {
     h1 {
       font-size: 26px;
     }
     h2 {
-      font-size: 22px;
+      font-size: 26px;
     }
   }
 
   /* - - - - - - - - - - - - - - - - -====♦ 📱 MOBILE: BANNER */
 
-  @media (max-width: 768px) {
+  @media (max-width: 600px) {
     .banner {
       background-image: none; /* ⬛️⬛️⬛️ remove clouds */
     }
 
     .banner-logo {
       content: url("images/logo_novicestar_mobile.png");
-      width: min(211px, 70vw);
+      width: min(500px);
+	  max-width: 100%;
     }
   }
 
   /* - - - - - - - - - - - - - - - - -====♦ 📱 MOBILE: MAIN BUTTONS */
 
-  @media (max-width: 768px) {
+  @media (max-width: 600px) {
     .nav-buttons {
       gap: 10px;
       margin-top: 6px;
@@ -455,23 +515,85 @@
       margin: 0;
     }
   }
+  
+  /* - - - - - - - - - - - - - - - - -====♦ 📱 MOBILE: BOOK META ICON ROW */
+
+  @media (max-width: 768px) {
+    .book-meta {
+      gap: 10px;
+      font-size: 13px;
+    }
+  }
 
   /* - - - - - - - - - - - - - - - - -====♦ 📱 MOBILE: BOOKS BUTTON */
 
-  @media (max-width: 768px) {
+  @media (max-width: 600px) {
     .mini-btn {
       padding: 6px 14px;
       font-size: 14px;
       margin: 6px 4px 0 0;
     }
   }
+  
+  /* - - - - - - - - - - - - - - - - -====♦ 📱 TABLET: BOOKS > CARD */ 
 
-  /* - - - - - - - - - - - - - - - - -====♦ 📱 MOBILE: BOOKS > CARD */ 
+  @media (min-width: 600px) and (max-width: 800px) {
+    .book-grid {
+      grid-template-columns: repeat(auto-fit, 235px);
+      gap: 10px;
+      row-gap: 10px;
+    }
+  
+    .book-card {
+	  padding: 10px;
+      margin-left: auto;
+      margin-right: auto;
+	  width: 220px;
+    }
+	
+    .book-card h3 {
+      margin: 5px 0 5px;
+      line-height: 1.35;
+    }
 
-  @media (max-width: 768px) {
+    .book-card p {
+      margin: 0 0 6px;
+      font-size: 14px;
+      opacity: 0.8;
+	  line-height: 1.35;
+    }
+  }
+
+  @media (min-width: 600px) and (max-width: 800px) and (orientation: landscape) {
+    .book-grid {
+      gap: 50px;
+      row-gap: 35px;
+    }
+  }
+
+  /* - - - - - - - - - - - - - - - - -====♦ 📱 CELLPHONE: BOOKS > CARD */ 
+
+  @media (max-width: 599px) {
+    .book-grid {
+      row-gap: 18px;
+    }
+  
     .book-card {
       margin-left: auto;
       margin-right: auto;
+	  width: 220px;
+    }
+
+    .book-card h3 {
+      margin: 5px 0 5px;
+      line-height: 1.35;
+    }
+
+   .book-card p {
+      margin: 0 0 6px;
+      font-size: 14px;
+      opacity: 0.8;
+      line-height: 1.35;
     }
   }
 
@@ -480,7 +602,7 @@
   .swipe-hint {
     font-size: 11px;
     margin-top: 4px;
-    color: #37B9BB;
+    color: #2C759C;
     opacity: 0.85;
   }
 
@@ -494,34 +616,24 @@
 
   /* - - - - - - - - - - - - - - - - -====♦ 📱 MOBILE: ABOUT */ 
 
-  @media (max-width: 768px) {
+  @media (max-width: 600px) {
     .about-grid {
       grid-template-columns: 1fr;
-      gap: 20px;
-      text-align: center;
     }
 
     .about-art {
+      margin: 0 auto 16px;
       justify-self: center;
-      align-self: start;
     }
 
-    .about-art img {
-      width: 100%;
-      max-width: 300px;
-      display: block;
+    .about-text {
       margin-left: auto;
       margin-right: auto;
+      text-align: center;
     }
-  }
 
-  .about-text {
-    padding-top: 12px;
-  }
-  
-  @media (max-width: 768px) {
-    .about h1 {
-      line-height: 1.05;
+    .about-text p {
+      text-align: center;
     }
   }
 
@@ -552,6 +664,52 @@
 
       <h2 class="section-title">✎ Our Little Books</h2>
 	  <div class="dotted-line"></div>
+	  	 
+    <div class="book-meta">
+	
+      <div class="meta-item">
+        <span class="meta-icon">
+          <img src="images/icon_pages.png" alt="">
+        </span>
+        <span class="meta-text">20 Pages</span>
+      </div>
+
+      <div class="meta-item">
+        <span class="meta-icon">
+          <img src="images/icon_star.png" alt="">
+        </span>
+        <span class="meta-text">+ Bonus pages</span>
+      </div>
+
+      <div class="meta-item">
+        <span class="meta-icon">
+          <img src="images/icon_cert.png" alt="">
+        </span>
+        <span class="meta-text">+ Certificates</span>
+      </div>
+
+      <div class="meta-item">
+        <span class="meta-icon">
+          <img src="images/icon_size.png" alt="">
+        </span>
+        <span class="meta-text">8.5"x11"</span>
+      </div>
+
+      <div class="meta-item">
+        <span class="meta-icon">
+          <img src="images/icon_singlepage.png" alt="">
+        </span>
+        <span class="meta-text">Single-sided</span>
+      </div>
+
+      <div class="meta-item">
+        <span class="meta-icon">
+          <img src="images/icon_printer.png" alt="">
+        </span>
+        <span class="meta-text">Print-friendly</span>
+      </div>
+	  
+    </div>
 
       <div class="book-grid">
 
@@ -571,8 +729,7 @@
           <h3>I Love What I Do Vol. 1</h3>
           <p>
 		    Occupation Coloring Book<br>
-	        20 cute characters • For ages 4+<br>
-		    <i>Released December 2025</i>
+		    <i>Released · Dec 2025</i>
           </p>
         <a href="https://www.etsy.com/listing/4413367767/i-love-what-i-do-vol-1-occupation" class="mini-btn" target="_blank" rel="noopener">➥ Etsy</a>
 		<a href="https://www.amazon.com/Love-What-Vol-Occupation-Single-Sided/dp/B0G764Z1JR/" class="mini-btn" target="_blank" rel="noopener">➥ Amazon</a>
@@ -585,7 +742,6 @@
           <h3>Let's Count Together 1-10</h3>
           <p>
 		    Basic Counting • Coloring Book<br>
-		    20 pages • For ages 4-6<br>
             Coming Soon
           </p>
         </div>
@@ -597,7 +753,6 @@
           <h3>Word Detective</h3>
           <p>
             Find the Word • Activity Book<br>
-            20 pages • For ages 4-6<br>
             Coming Soon
           </p>
         </div>
@@ -619,7 +774,8 @@
         </div>
 		
         <!-- RIGHT: text -->
-        <div class="about-text">
+        <div class="about-text-wrap">
+		<div class="about-text">
           <h1>About NoviceStar✦</h1>
           <div class="about-dotted-line"></div>
           <p class="desc">
@@ -631,7 +787,7 @@
             and proud “I did it!” moments.
           </p>
 		  <p class="creator-line">
-            <span class="label">Creator &amp; Illustrator</span> Lois Laqui
+            <span class="label">Creator &amp; Illustrator:</span> Lois Laqui
             <br>✦ <i>Based in the Philippines</i> ✦
 		  </p>
           <p class="contact">
@@ -640,6 +796,7 @@
             novicestar.letter@gmail.com
             </a>
           </p>
+		  </div>
         </div>
 
       </div>
